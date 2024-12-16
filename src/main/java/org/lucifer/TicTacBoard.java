@@ -42,4 +42,14 @@ public class TicTacBoard {
     }
     setSymbol(move.getXPosition(), move.getYPosition(), symbol);
   }
+
+  public int countMoves() {
+    int count = 0;
+    for (int y = 0; y < 3; y++) {
+      for (int x = 0; x < 3; x++) {
+        if (getSymbol(x, y) == XOSymbol.NOT_ASSIGNED) count++;
+      }
+    }
+    return count;
+  }
 }

@@ -33,7 +33,7 @@ public class TicTacGame {
       Move humanPlayerMove = readPlayerInput();
       ticTacBoard.makeMove(humanPlayerMove, humanPlayer.getSymbol());
 
-      Move computerSuggestedMove = ticTacAIEngine.suggestMove(ticTacBoard);
+      Move computerSuggestedMove = ticTacAIEngine.suggestRandomMove(ticTacBoard, ticTacRuleEngine);
       ticTacBoard.makeMove(computerSuggestedMove, compPlayer.getSymbol());
 
       System.out.println(ticTacBoard);

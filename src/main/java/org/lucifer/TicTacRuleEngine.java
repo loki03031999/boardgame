@@ -19,7 +19,7 @@ public class TicTacRuleEngine {
   }
 
   public boolean isValidMove(Move move, TicTacBoard ticTacBoard) {
-    if (move.getXPosition() < 0 || move.getYPosition() < 0 || move.getXPosition() > 2 || move.getYPosition() > 2) return false;
+    if (move == null || move.getXPosition() < 0 || move.getYPosition() < 0 || move.getXPosition() > 2 || move.getYPosition() > 2) return false;
     return (ticTacBoard.getSymbol(move.getXPosition(), move.getYPosition()) == XOSymbol.NOT_ASSIGNED);
   }
 

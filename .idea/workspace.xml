@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="240a9a63-68bf-46a4-b179-b4a237e2d03f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/lucifer/TicTacBoardTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/lucifer/TicTacRuleEngineTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadME.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadME.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lucifer/TicTacAIEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lucifer/TicTacAIEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lucifer/TicTacBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lucifer/TicTacBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lucifer/TicTacGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lucifer/TicTacGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lucifer/TicTacRuleEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lucifer/TicTacRuleEngine.java" afterDir="false" />
@@ -50,6 +49,7 @@
     "Application.Main.executor": "Run",
     "JUnit.TicTacBoardTest.executor": "Run",
     "JUnit.TicTacRuleEngineTest.executor": "Run",
+    "JUnit.lucifer in boardgame.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -74,7 +74,7 @@
       <recent name="org.lucifer" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.lucifer in boardgame">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.lucifer.Main" />
       <module name="boardgame" />
@@ -128,10 +128,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.lucifer in boardgame" />
         <item itemvalue="JUnit.TicTacRuleEngineTest" />
         <item itemvalue="JUnit.TicTacBoardTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>

@@ -1,8 +1,17 @@
 package org.lucifer;
 
+import java.util.Random;
+import java.util.random.RandomGenerator;
+
 public class TicTacAIEngine {
 
-  public Move suggestMove(TicTacBoard ticTacBoard) {
+  private final RandomGenerator randomGenerator;
+
+  public TicTacAIEngine() {
+    randomGenerator = new Random();
+  }
+
+  public Move suggestMove(TicTacBoard ticTacBoard, TicTacRuleEngine ticTacRuleEngine) {
     for (int y = 0; y < 3; y++) {
       for (int x = 0; x < 3; x++) {
         if (ticTacBoard.getSymbol(x, y) == XOSymbol.NOT_ASSIGNED) {
@@ -11,5 +20,24 @@ public class TicTacAIEngine {
       }
     }
     throw new RuntimeException("Not able to suggest a move");
+  }
+
+  private Move suggestSmartMove(TicTacBoard ticTacBoard, TicTacRuleEngine ticTacRuleEngine) {
+    if (ticTacBoard.countMoves() == 3) {
+      return null;
+    }
+    else {
+      return suggestRandomMove(ticTacBoard, ticTacRuleEngine);
+    }
+  }
+
+  public Move suggestRandomMove(TicTacBoard ticTacBoard, TicTacRuleEngine ticTacRuleEngine) {
+    Move move = null;
+    while (!ticTacRuleEngine.isValidMove(move, ticTacBoard)) {
+      int xPosition = randomGenerator.nextInt(0, 3);
+      int yPosition = randomGenerator.nextInt(0, 3);
+      move = new Move(xPosition, yPosition);
+    }
+    return move;
   }
 }
