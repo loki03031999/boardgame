@@ -18,9 +18,9 @@ public class TicTacRuleEngine {
     return diagonalSymbol;
   }
 
-  public boolean isValidMove(int x, int y, TicTacBoard ticTacBoard) {
-    if (x < 0 || y < 0 || x > 2 || y > 2) return false;
-    return (ticTacBoard.getSymbol(x, y) == XOSymbol.NOT_ASSIGNED);
+  public boolean isValidMove(Move move, TicTacBoard ticTacBoard) {
+    if (move.getXPosition() < 0 || move.getYPosition() < 0 || move.getXPosition() > 2 || move.getYPosition() > 2) return false;
+    return (ticTacBoard.getSymbol(move.getXPosition(), move.getYPosition()) == XOSymbol.NOT_ASSIGNED);
   }
 
   private XOSymbol checkDiagonal(TicTacBoard ticTacBoard) {
@@ -73,8 +73,8 @@ public class TicTacRuleEngine {
    * Returns symbol which is equal in a row;
    * return null is no row has all equal symbol
    *
-   * @param ticTacBoard
-   * @return
+   * @param ticTacBoard stores the current state of game.
+   * @return symbol which is equal across a particular row.
    */
   private XOSymbol checkHorizontal(TicTacBoard ticTacBoard) {
     for (int y = 0; y < 3; y++) {

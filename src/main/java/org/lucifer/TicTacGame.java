@@ -24,8 +24,8 @@ public class TicTacGame {
 
   public void start() {
     System.out.println("Welcome to XO game\n");
-    initializePlayers();
     initializeGame();
+    initializePlayers();
 
     while (!ticTacRuleEngine.isGameComplete(ticTacBoard)) {
       //who should provide the validation of input provided by the player
@@ -55,7 +55,7 @@ public class TicTacGame {
       xPos = scanner.nextInt();
       yPos = scanner.nextInt();
 
-      if (ticTacRuleEngine.isValidMove(xPos, yPos, ticTacBoard)) break;
+      if (ticTacRuleEngine.isValidMove(new Move(xPos, yPos), ticTacBoard)) break;
       else System.out.println("You have made an incorrect move, please try again");
     }
     return new Move(xPos, yPos);

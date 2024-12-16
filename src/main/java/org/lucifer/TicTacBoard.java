@@ -32,11 +32,14 @@ public class TicTacBoard {
     return board[y][x];
   }
 
-  public void setSymbol(int x, int y, XOSymbol o) {
+  private void setSymbol(int x, int y, XOSymbol o) {
     board[y][x] = o;
   }
 
-  public void makeMove(Move humanPlayerMove, XOSymbol symbol) {
-    setSymbol(humanPlayerMove.getXPosition(), humanPlayerMove.getYPosition(), symbol);
+  public void makeMove(Move move, XOSymbol symbol) {
+    if (move.getXPosition() > 2 || move.getYPosition() > 2) {
+      throw new IllegalArgumentException("invalid move provided");
+    }
+    setSymbol(move.getXPosition(), move.getYPosition(), symbol);
   }
 }
