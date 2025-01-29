@@ -1,5 +1,6 @@
 package org.lucifer;
 
+import java.time.Duration;
 import java.util.Random;
 import java.util.random.RandomGenerator;
 
@@ -33,6 +34,12 @@ public class TicTacAIEngine {
 
   public Move suggestRandomMove(TicTacBoard ticTacBoard, TicTacRuleEngine ticTacRuleEngine) {
     Move move = null;
+    try {
+      Thread.sleep(Duration.ofSeconds(1));
+    }
+    catch (Exception e) {
+
+    }
     while (!ticTacRuleEngine.isValidMove(move, ticTacBoard)) {
       int xPosition = randomGenerator.nextInt(0, 3);
       int yPosition = randomGenerator.nextInt(0, 3);

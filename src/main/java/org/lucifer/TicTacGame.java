@@ -27,24 +27,40 @@ public class TicTacGame {
     initializeGame();
     initializePlayers();
 
+    boolean flag = true;
     while (!ticTacRuleEngine.isGameComplete(ticTacBoard)) {
-      //who should provide the validation of input provided by the player
-      //rule engine performs validations during reading input from player
-      Move humanPlayerMove = readPlayerInput();
-      ticTacBoard.makeMove(humanPlayerMove, humanPlayer.getSymbol());
-
-      Move computerSuggestedMove = ticTacAIEngine.suggestRandomMove(ticTacBoard, ticTacRuleEngine);
-      ticTacBoard.makeMove(computerSuggestedMove, compPlayer.getSymbol());
-
+      if (flag) makeMoveHuman();
+      else makeMoveComputer();
+      flag = !flag;
       System.out.println(ticTacBoard);
     }
 
-    if (ticTacRuleEngine.getWinner(ticTacBoard) == humanPlayer.getSymbol()) {
+    XOSymbol winnerSymbol = ticTacRuleEngine.getWinner(ticTacBoard);
+
+    if (winnerSymbol == humanPlayer.getSymbol()) {
       System.out.printf("Congratulation %s you won the game", humanPlayer.getName());
     }
-    else {
-      System.out.println("Better luck next time");
+    else if (winnerSymbol == compPlayer.getSymbol()){
+      System.out.println("You lost the game, Better luck next time");
     }
+    else {
+      System.out.println("Game Draw");
+    }
+  }
+
+  private void makeMoveComputer() {
+    Move computerSuggestedMove = ticTacAIEngine.suggestRandomMove(ticTacBoard, ticTacRuleEngine);
+    ticTacBoard.makeMove(computerSuggestedMove, compPlayer.getSymbol());
+
+    System.out.printf("Computer move - %s\n", computerSuggestedMove);
+  }
+
+  private void makeMoveHuman() {
+    //who should provide the validation of input provided by the player
+    //rule engine performs validations during reading input from player
+    Move humanPlayerMove = readPlayerInput();
+    ticTacBoard.makeMove(humanPlayerMove, humanPlayer.getSymbol());
+    System.out.printf("your move - %s\n", humanPlayerMove);
   }
 
   private Move readPlayerInput() {
@@ -74,7 +90,7 @@ public class TicTacGame {
   }
   
   private Player createComputerPlayer(XOSymbol symbol) {
-    return new Player("computer", symbol);
+    return new Player("computer",PlayerType.COMPUTER, symbol);
   }
 
   private Player createHumanPlayer() {
@@ -86,7 +102,7 @@ public class TicTacGame {
       String humanPlayerSymbolString = scanner.nextLine();
       try {
         XOSymbol humanPlayerSymbol = XOSymbol.createXOSymbol(humanPlayerSymbolString);
-        return new Player(humanPlayerName, humanPlayerSymbol);
+        return new Player(humanPlayerName, PlayerType.HUMAN, humanPlayerSymbol);
       }
       catch (IllegalArgumentException illegalArgumentException) {
         System.out.println("Provided symbol is incorrect, Please enter correct symbol");
