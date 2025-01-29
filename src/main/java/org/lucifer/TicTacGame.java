@@ -26,15 +26,11 @@ public class TicTacGame {
     System.out.println("Welcome to XO game\n");
     initializeGame();
     initializePlayers();
+    makeMoves();
+    diplayWinner();
+  }
 
-    boolean flag = true;
-    while (!ticTacRuleEngine.isGameComplete(ticTacBoard)) {
-      if (flag) makeMoveHuman();
-      else makeMoveComputer();
-      flag = !flag;
-      System.out.println(ticTacBoard);
-    }
-
+  private void diplayWinner() {
     XOSymbol winnerSymbol = ticTacRuleEngine.getWinner(ticTacBoard);
 
     if (winnerSymbol == humanPlayer.getSymbol()) {
@@ -45,6 +41,15 @@ public class TicTacGame {
     }
     else {
       System.out.println("Game Draw");
+    }
+  }
+
+  private void makeMoves() {
+    boolean flag = false;
+    while (!ticTacRuleEngine.isGameComplete(ticTacBoard)) {
+      if (flag = !flag) makeMoveHuman();
+      else makeMoveComputer();
+      System.out.println(ticTacBoard);
     }
   }
 
